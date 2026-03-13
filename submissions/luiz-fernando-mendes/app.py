@@ -606,15 +606,21 @@ def main():
             st.plotly_chart(fig_dist, use_container_width=True)
     
     with col_chart2:
-        # Gráfico de deals por stage
+        # Gráfico de deals por stage refinado
         stage_counts = pipeline_filtered['deal_stage'].value_counts()
         fig_stage = px.pie(
             values=stage_counts.values,
             names=stage_counts.index,
             title="📍 Distribuição por Stage",
-            color_discrete_sequence=px.colors.qualitative.Set2
+            color_discrete_sequence=['#476382', '#94A3B8'] # Cores da sua paleta G4
         )
-        st.plotly_chart(fig_stage, use_container_width=True)
+        
+        # A MÁGICA: Limpa o hover para mostrar apenas o essencial de forma elegante
+        fig_stage.update_traces(
+            textposition='inside', 
+            textinfo='percent+label',
+            hovertemplate="<b>%{label}</b><br>Quantidade: %{value}<extra></extra>"
+        )
     
     # =========================================================================
     # TOP 10 DEALS PARA FOCAR
