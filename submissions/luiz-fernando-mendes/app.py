@@ -612,15 +612,18 @@ def main():
             values=stage_counts.values,
             names=stage_counts.index,
             title="📍 Distribuição por Stage",
-            color_discrete_sequence=['#476382', '#94A3B8'] # Cores da sua paleta G4
+            color_discrete_sequence=['#476382', '#94A3B8', '#1E293B', '#CBD5E1'] # Paleta G4
         )
         
-        # A MÁGICA: Limpa o hover para mostrar apenas o essencial de forma elegante
+        # Ajuste de traços e remoção do "label" indesejado no hover
         fig_stage.update_traces(
             textposition='inside', 
             textinfo='percent+label',
             hovertemplate="<b>%{label}</b><br>Quantidade: %{value}<extra></extra>"
         )
+
+        # A LINHA QUE FALTAVA: Manda o gráfico para a tela
+        st.plotly_chart(fig_stage, use_container_width=True)
     
     # =========================================================================
     # TOP 10 DEALS PARA FOCAR
