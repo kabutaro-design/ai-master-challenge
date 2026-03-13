@@ -24,16 +24,25 @@ st.set_page_config(
 # CARREGAMENTO DE DADOS
 # ============================================================================
 @st.cache_data
+@st.cache_data
 def load_data():
-    """Carrega os 4 arquivos CSV do CRM"""
+    """Carrega os arquivos CSV garantindo o caminho correto no deploy"""
+    import os
+    # Detecta o diretório onde o app.py está localizado
+    base_path = os.path.dirname(__file__)
+    
+    files = {
+        'accounts': 'accounts.csv',
+        'sales_teams': 'sales_teams.csv',
+        'products': 'products.csv',
+        'sales_pipeline': 'sales_pipeline.csv'
+    }
+    
     try:
-        accounts = pd.read_csv('accounts.csv')
-        sales_teams = pd.read_csv('sales_teams.csv')
-        products = pd.read_csv('products.csv')
-        sales_pipeline = pd.read_csv('sales_pipeline.csv')
-        return accounts, sales_teams, products, sales_pipeline
-    except FileNotFoundError:
-        st.error("Arquivos CSV não encontrados. Certifique-se de que estão na mesma pasta.")
+        data = {name: pd.read_csv(os.path.join(base_path, path)) for name, path in files.items()}
+        return data['accounts'], data['sales_teams'], data['products'], data['sales_pipeline']
+    except FileNotFoundError as e:
+        st.error(f"Erro ao carregar dados: {e}")
         return None, None, None, None
 
 # ============================================================================
