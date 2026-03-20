@@ -132,7 +132,7 @@ O projeto iniciou com a criação de um **GEM personalizado no Gemini chamado "L
 
 ## 7. Infraestrutura e Deploy de Alta Performance
 
-Após a construção em React, iniciei o processo de deploy para um servidor de produção definitivo. Esta etapa exigiu a superação de barreiras técnicas de ambiente e a configuração de um pipeline de entrega manual via FTP.
+Tive um problema com a hospedagem onde estava o sistem, por ser limitada, o sistema tem um limite de visualização, como eu não sei a quantidade de vezes que a G4 irá acessar, eu decidi trocar par aum outro. Iniciei o processo de deploy para um servidor de produção definitivo. Esta etapa exigiu a superação de barreiras técnicas de ambiente e a configuração de um pipeline de entrega manual via FTP pois o Google AI Studio não estava atualizando os aquivos no meu github, onde conecto con a hospedagem Netlify. Eu decidi baixar os arquivos e subir para a hospedagem nova via FTP.
 
 - **Ação**: Identifiquei que o comando `vite` não estava sendo reconhecido globalmente no terminal.
 - **Correção**: Executei o `npm install` para restaurar as dependências e utilizei o `npx vite build` para forçar a geração da pasta de produção (`dist`) de forma otimizada.
