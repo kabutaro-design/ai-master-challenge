@@ -156,7 +156,6 @@ Após a construção em React, iniciei o processo de deploy para um servidor de 
 
 ## 9. Resultado Final
 
-- **Imagem 38, 39 e 40**: Deploy final no Netlify. Sistema 100% funcional, estável, com tutorial de boas-vindas e dashboard de alta performance.
-> ![Deploy Final](./screenshots/38.png)
+- **Imagem 39 e 40**: Deploy final no Profreehost. Sistema 100% funcional, estável, com tutorial de boas-vindas e dashboard de alta performance.
 > ![Sucesso](./screenshots/39.png)
 > ![Sistema 100%](./screenshots/40.png)
