@@ -3,14 +3,14 @@
 ## Sobre mim
 
 - **Nome:** Luiz Fernando Mendes
-- **LinkedIn:** [[Link de Perfil]](https://www.linkedin.com/in/luizfmmendes/)
+- **LinkedIn:** [Perfil LinkedIn](https://www.linkedin.com/in/luizfmmendes/)
 - **Challenge escolhido:** Lead Scorer Inteligente (RevOps & Data Science)
 
 ---
 
 ## Executive Summary
 
-Desenvolvi uma plataforma preditiva de Lead Scoring que transforma o pipeline estático em um motor de priorização estratégica. Através de um diagnóstico profundo de RevOps, identifiquei uma "Zona de Ouro" de conversão (75%) entre 30 e 120 dias de maturidade. A solução final é um dashboard executivo em React, hospedado no Netlify, que processa 2.089 deals ativos e isola as 229 oportunidades com maior probabilidade de fechamento (Score 75+), permitindo uma alocação eficiente do time comercial.
+Desenvolvi uma plataforma preditiva de Lead Scoring que transforma o pipeline estático em um motor de priorização estratégica. Através de um diagnóstico profundo de RevOps, identifiquei uma **"Zona de Ouro"** de conversão entre 30 e 120 dias de maturidade. A solução final é um dashboard executivo em React, hospedado no Netlify, que processa 2.089 deals ativos e isola as **229 oportunidades** com maior probabilidade de fechamento (Score 75+), permitindo uma alocação eficiente do time comercial e maximização de receita.
 
 ---
 
@@ -22,62 +22,52 @@ A solução pode ser acessada em tempo real pelo link abaixo:
 ### Abordagem
 
 O problema foi decomposto em três frentes:
-1.  **Diagnóstico de Dados:** Análise exploratória dos CSVs para identificar gargalos (ex: 68% de accounts não vinculados e a "Zona de Morte" nos primeiros 15 dias).
-2.  **Modelagem Matemática:** Criação de um algoritmo de scoring ponderado: Maturidade (35%), Performance do Agente (30%), Fit de Produto (20%) e Firmographics (15%).
-3.  **Entrega de Produto:** Evolução de um MVP em Python (Streamlit) para uma aplicação de alta performance em React para garantir UX executiva.
+1. **Diagnóstico de Dados:** Análise exploratória dos CSVs para identificar gargalos (ex: 68% de accounts não vinculados e a "Zona de Morte" nos primeiros 15 dias).
+2. **Modelagem Matemática:** Criação de um algoritmo de scoring ponderado: Maturidade (35%), Performance do Agente (30%), Fit de Produto (20%) e Firmographics (15%).
+3. **Entrega de Produto:** Evolução de um MVP em Python (Streamlit) para uma aplicação de alta performance em React para garantir UX executiva e explicabilidade.
+
+### Validação Técnica (Data Science)
+Para garantir a integridade das afirmações analíticas, incluí o script de derivação:
+* 📁 **Arquivo:** `solution/data_analysis.py`
+* **O que ele prova:** Processa o `sales_pipeline.csv` original, calcula o Win Rate por janelas temporais e valida matematicamente que a maior conversão histórica ocorre na janela de **30-120 dias**, sustentando a lógica do Dashboard.
 
 ### Resultados / Findings
 
 * **Pipeline Ativo:** Processamento total de 2.089 deals em tempo real via upload de CSV.
-* **Identificação de Ouro:** Isolamento de 229 deals de "Alta Prioridade" que possuem os pilares ideais de fechamento.
+* **Identificação de Ouro:** Isolamento de 229 deals de "Alta Prioridade" com os pilares ideais de fechamento.
 * **Explainability:** O sistema detalha individualmente o "porquê" de cada score, eliminando a "caixa-preta" da IA para o vendedor.
-* **Identidade Visual:** Interface customizada com a paleta G4 Scale (#1E293B e #476382).
-
-### Recomendações
-
-1.  **Foco Imediato:** Concentrar o time de vendas exclusivamente nos 229 leads identificados com Score 75+.
-2.  **Saneamento de CRM:** Corrigir o fluxo de entrada de dados, visto que 68% dos deals não possuem conta vinculada, prejudicando a análise de Firmographics.
-3.  **Automação de Pipeline:** Utilizar a estrutura de API já prevista no código para conectar a ferramenta diretamente ao HubSpot/Salesforce.
-
-### Limitações
-
-A principal limitação foi a qualidade dos dados de Firmographics no dataset original. Devido à ausência de informações em muitos registros, o algoritmo foi ajustado para aplicar um "score neutro" nesses casos, evitando a despriorização injusta de bons negócios por falha de cadastro.
+* **Consistência Monetária:** Interface totalmente ajustada para **USD ($)**, mantendo fidelidade ao dataset original.
 
 ---
 
 ## Process Log — Como usei IA
 
+O processo completo, com mais de 40 evidências visuais e histórico de tomadas de decisão, está disponível em:
+📁 **Documentação:** `process-log/PROCESS_LOG.md`
+
 ### Ferramentas usadas
 
 | Ferramenta | Para que usou |
 |------------|--------------|
-| **Gemini 3 Flash** | Mentor de estratégia, diagnóstico de RevOps e correção de bugs técnicos de build e lógica. |
-| **Google AI Studio** | Prototipagem da interface React e estruturação do dashboard executivo. |
-| **Vite/Netlify** | Build e hospedagem da aplicação final. |
-
-### Workflow
-
-1.  **Análise de Dados:** Usei o Gemini para identificar padrões de conversão e definir os pesos do algoritmo de scoring.
-2.  **Prototipagem:** Construí a lógica inicial no Python e transpus para React usando o Google AI Studio para ganhar sofisticação visual.
-3.  **Iteração Técnica:** Passei por 4 ciclos de correção de erros de build no Netlify e ajustes de indentação no Python.
-4.  **Ajuste Temporal:** Corrigi o "Bug do Tempo" onde a IA usava 2026 como referência para dados de 2017.
-
-### O onde a IA errou e como corrigi
-
-A IA tentou calcular a maturidade dos deals usando a data atual (2026). Como o dataset é histórico (2017), todos os scores resultavam em zero ("Expirado"). **Minha correção:** Instruí a IA a identificar a data máxima do dataset e utilizá-la como a "Data de Referência" dinâmica, devolvendo a vida aos scores da Zona de Ouro. Além disso, corrigi erros de resolução de caminhos no Vite (`main.tsx`) que impediam o deploy no Netlify.
+| **Gemini 3 Flash (GEM Luiz)** | Mentor de estratégia (Napoleon Hill/Kotler), diagnóstico de RevOps e suporte técnico. |
+| **Qwen** | Geração da lógica bruta inicial em Python e prototipagem rápida. |
+| **Google AI Studio** | Reconstrução total do sistema em React para entrega de nível corporativo. |
+| **VS Code / Netlify** | Debug local de ambiente Python 3.14 e deploy da aplicação final. |
 
 ### O que eu adicionei que a IA sozinha não faria
 
-O **Julgamento de Negócio**. A IA sugeriu penalizar severamente deals sem "Account" vinculado. Eu identifiquei que, como 68% do pipeline estava assim, a penalização destruiria a utilidade da ferramenta. Decidi configurar um peso neutro para essa categoria, priorizando a usabilidade do time comercial enquanto o problema de governança de dados é resolvido.
+1. **Julgamento de Negócio:** A IA sugeriu penalizar deals sem "Account". Identifiquei que isso ocultaria 68% do pipeline e decidi configurar um peso neutro para manter a utilidade da ferramenta.
+2. **Pivô Estratégico:** Após 4 horas em Python, identifiquei que o fluxo era lento e pouco intuitivo. Tomei a decisão executiva de abandonar o código e reconstruir em React para garantir a melhor experiência ao usuário G4.
+3. **Homenagem e Contexto:** Criei o GEM "Luiz", uma homenagem ao meu pai, garantindo que a IA operasse sob diretrizes éticas e psicológicas específicas, e não apenas como um gerador de código.
 
 ---
 
 ## Evidências
 
-- [x] Link do Netlify: [https://leadscoreinteligente.netlify.app](https://leadscoreinteligente.netlify.app)
-- [x] Repositório GitHub com histórico de commits.
-- [x] Screenshots do Dashboard incluídos na pasta `/assets`.
+- [x] **Aplicação em Produção:** [https://leadscoreinteligente.netlify.app](https://leadscoreinteligente.netlify.app)
+- [x] **Process Log Auditável:** Localizado em `/process-log/` com screenshots numeradas.
+- [x] **Derivação de Dados:** Script `data_analysis.py` incluído na pasta `/solution`.
+- [x] **Consistência de Interface:** Moeda ajustada para USD e dados batendo com o dataset.
 
 ---
-
-_Submissão enviada em: 13/03/2026_
+_Submissão finalizada em: 13/03/2026_
