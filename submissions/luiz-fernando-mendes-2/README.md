@@ -17,7 +17,7 @@ Desenvolvi uma plataforma preditiva de Lead Scoring que transforma o pipeline es
 ## Solução
 
 A solução pode ser acessada em tempo real pelo link abaixo:
-🚀 **Aplicação Funcional:** [https://leadscoreinteligente.netlify.app](https://leadscoreinteligente.netlify.app)
+🚀 **Aplicação Funcional:** [https://leadscoreinteligente.unaux.com/](https://leadscoreinteligente.unaux.com/)
 
 ### Abordagem
 
@@ -65,7 +65,7 @@ O processo completo, com mais de 40 evidências visuais e histórico de tomadas 
 
 ## Evidências
 
-- [x] **Aplicação em Produção:** [https://leadscoreinteligente.netlify.app](https://leadscoreinteligente.netlify.app)
+- [x] **Aplicação em Produção:** [https://leadscoreinteligente.unaux.com/](https://leadscoreinteligente.unaux.com/)
 - [x] **Process Log Auditável:** Localizado em `/process-log/` com screenshots numeradas.
 - [x] **Derivação de Dados:** Script `data_analysis.py` incluído na pasta `/solution`.
 - [x] **Consistência de Interface:** Moeda ajustada para USD e dados batendo com o dataset.
